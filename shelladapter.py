@@ -32,11 +32,11 @@ def give_command(cmd):
 
 def parseInput(txt):
 	el = txt.split(' ')
+	#return give_function(el[0], el[1:])
 	if el[0] == 'cp':
-		if el[1] == '-r': return cp(el[2], el[3])
-		return cp(el[1], el[2])
+		return give_function(el[0], el[1], el[2])
 	if el[0] == 'rm':
-		return rm(el[1])
+		return give_function(el[0], el[1])
 	return txt
 
 def try_run(cmd):
@@ -49,12 +49,6 @@ def try_run(cmd):
 	except Exception as e: print(e); exit()
 
 def run_command():
-	#cmd = 'rm file2'
-	#try_run(cmd)
-	#cmd = 'cp -r file file2'
-	#try_run(cmd)
-	#cmd = 'ls'
-	#try_run(cmd)
 	cmd = input('Enter Command: ')
 	try_run(cmd)
 
